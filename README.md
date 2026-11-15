@@ -1,5 +1,10 @@
 # SHINECRAFT
 
+[![SHINECRAFT feature demo (68 s video)](media/poster.jpg)](media/shinecraft_demo.mp4)
+
+▶ [Watch the feature demo](media/shinecraft_demo.mp4) (68 s, 1080p): every scene rendered in EffectCraft 0.24.1 with the
+native helper.
+
 Volumetric light rays for [EffectCraft](https://github.com/storytold/effectcraft): light streams out
 of the bright parts of a layer, away from a source point, with shimmer, gradient colorize and
 fractal noise.

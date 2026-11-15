@@ -1,0 +1,21 @@
+{
+  "id": "io.github.spoofah.shinecraft",
+  "name": "SHINECRAFT",
+  "author": "Spoofah",
+  "description": "Volumetric light rays streaming from the bright parts of the layer, with shimmer, gradient colorize and fractal noise.",
+  "license": "MIT OR Apache-2.0",
+  "repo": "https://github.com/spoofah/shinecraft",
+  "tags": ["stylize", "light"],
+  "preview": {"video": "https://github.com/spoofah/shinecraft/raw/main/media/shinecraft_demo.mp4"},
+  "versions": [
+    {
+      "version": "1.0.0",
+      "api": 1,
+      "minApp": "0.23.0",
+      "url": "https://github.com/spoofah/shinecraft/releases/download/v1.0.0/shinecraft.wasm",
+      "sha256": "3362ea5eb6e3f82aa8a021d6b0ec2105c49cd5fa8c71de972c59414fe3f2174a",
+      "size": 83563,
+      "effects": ["io.github.spoofah.shinecraft"]
+    }
+  ]
+}

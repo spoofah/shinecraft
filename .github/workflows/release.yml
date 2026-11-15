@@ -1,0 +1,25 @@
+# Builds the release assets from the tag, so they can be checked against the source.
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install   # the version in rust-toolchain.toml
+      - run: cargo test --release --locked
+      - run: cargo build --release --locked --target wasm32-unknown-unknown
+      - run: cargo build --release --locked --features helper --bin effectcraft-helper-shinecraft
+      - shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd target
+          cp wasm32-unknown-unknown/release/shinecraft.wasm release/effectcraft-helper-shinecraft.exe .
+          sha256sum shinecraft.wasm effectcraft-helper-shinecraft.exe > SHA256SUMS
+          gh release create "$GITHUB_REF_NAME" shinecraft.wasm effectcraft-helper-shinecraft.exe SHA256SUMS \
+            --title "SHINECRAFT ${GITHUB_REF_NAME#v}" --notes "See the README for installation."

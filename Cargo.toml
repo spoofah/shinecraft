@@ -1,0 +1,37 @@
+[package]
+name = "shinecraft"
+description = "SHINECRAFT: volumetric light rays from the bright parts of a layer, an EffectCraft effect (WebAssembly plug-in and native helper)"
+version = "1.0.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+publish = false
+repository = "https://github.com/spoofah/shinecraft"
+
+# Build: cargo build --release --target wasm32-unknown-unknown
+[workspace]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# Run the heavy loops on every core (the native helper; WebAssembly has no threads).
+par = ["dep:rayon"]
+# The native EffectCraft effect helper (effectcraft-helper-shinecraft.exe).
+helper = ["par", "dep:serde_json", "dep:memmap2"]
+
+[dependencies]
+rayon = { version = "1", optional = true }
+serde_json = { version = "1", optional = true }
+memmap2 = { version = "0.9", optional = true }
+
+[[bin]]
+name = "effectcraft-helper-shinecraft"
+required-features = ["helper"]
+
+[dev-dependencies]
+serde_json = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
+panic = "abort"

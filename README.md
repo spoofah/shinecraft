@@ -15,7 +15,7 @@ code (`shine()` in `src/lib.rs`), with the same parameters and the same look:
 | | File | Speed (1080p frame) | Install |
 |---|---|---|---|
 | WebAssembly plug-in | `shinecraft.wasm` | ~1 s (sandboxed interpreter) | Plug-in Library, or the `Plug-ins` folder |
-| Native effect helper (Windows x64) | `effectcraft-helper-shinecraft.exe` | ~13 ms on all cores | EffectCraft's `helpers` folder |
+| Native effect helper (Windows x64, Linux x64) | `effectcraft-helper-shinecraft(.exe)` | ~13 ms on all cores | EffectCraft's `helpers` folder |
 
 Use the helper for real work; the plug-in is for the Plug-in Library and other systems.
 Install only one of them: if the `.wasm` is loaded, EffectCraft won't register the helper's
@@ -25,9 +25,12 @@ effect, which has the same id.
 
 Downloads are on the [releases page](https://github.com/spoofah/shinecraft/releases).
 
-**Native helper (fast, Windows):**
+**Native helper (fast, Windows and Linux):**
 1. Close EffectCraft.
-2. Copy `effectcraft-helper-shinecraft.exe` into the `helpers` folder beside `effectcraft.exe`.
+2. Copy `effectcraft-helper-shinecraft.exe` (Windows) or `effectcraft-helper-shinecraft` (Linux)
+   into the `helpers` folder beside the EffectCraft program (or into a folder named in the
+   environment variable `EFFECTCRAFT_HELPER_PATH`). On Linux, make it executable:
+   `chmod +x effectcraft-helper-shinecraft`. The Linux build hasn't been tested in EffectCraft yet.
 3. Start EffectCraft and run Effect ▸ Scan for Effect Helpers (or start it with the environment
    variable `EFFECTCRAFT_HELPERS=1`). SHINECRAFT is then in Effects & Presets ▸ Stylize.
 
@@ -66,7 +69,7 @@ cargo build --release --locked --features helper --bin effectcraft-helper-shinec
 ```
 
 The plug-in is `target/wasm32-unknown-unknown/release/shinecraft.wasm` and imports nothing; the
-helper is `target/release/effectcraft-helper-shinecraft.exe`. Releases are built from the tag by
+helper is `target/release/effectcraft-helper-shinecraft(.exe)`. Releases are built from the tag by
 `.github/workflows/release.yml`.
 
 ## How it works

@@ -6,20 +6,40 @@ on:
 permissions:
   contents: write
 jobs:
-  release:
-    runs-on: windows-latest
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            files: target/wasm32-unknown-unknown/release/shinecraft.wasm target/release/effectcraft-helper-shinecraft.exe
+          - os: ubuntu-22.04   # older glibc, so the binary runs on more distributions
+            files: target/release/effectcraft-helper-shinecraft
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - run: rustup toolchain install   # the version in rust-toolchain.toml
       - run: cargo test --release --locked
-      - run: cargo build --release --locked --target wasm32-unknown-unknown
+      - if: runner.os == 'Windows'
+        run: cargo build --release --locked --target wasm32-unknown-unknown
       - run: cargo build --release --locked --features helper --bin effectcraft-helper-shinecraft
       - shell: bash
-        env:
+        run: mkdir out && cp ${{ matrix.files }} out/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.os }}
+          path: out/
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+      - env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          cd target
-          cp wasm32-unknown-unknown/release/shinecraft.wasm release/effectcraft-helper-shinecraft.exe .
-          sha256sum shinecraft.wasm effectcraft-helper-shinecraft.exe > SHA256SUMS
-          gh release create "$GITHUB_REF_NAME" shinecraft.wasm effectcraft-helper-shinecraft.exe SHA256SUMS \
+          chmod +x effectcraft-helper-shinecraft
+          sha256sum shinecraft.wasm effectcraft-helper-shinecraft.exe effectcraft-helper-shinecraft > SHA256SUMS
+          gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" \
+            shinecraft.wasm effectcraft-helper-shinecraft.exe effectcraft-helper-shinecraft SHA256SUMS \
             --title "SHINECRAFT ${GITHUB_REF_NAME#v}" --notes "See the README for installation."

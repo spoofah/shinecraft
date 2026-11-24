@@ -1,6 +1,6 @@
-# SHINECRAFT
+# ShineCraft
 
-[![SHINECRAFT feature demo (68 s video)](media/poster.jpg)](media/shinecraft_demo.mp4)
+[![ShineCraft feature demo (68 s video)](media/poster.jpg)](media/shinecraft_demo.mp4)
 
 ▶ [Watch the feature demo](media/shinecraft_demo.mp4) (68 s, 1080p): every scene rendered in EffectCraft 0.24.1 with the
 native helper.
@@ -34,9 +34,9 @@ Downloads are on the [releases page](https://github.com/spoofah/shinecraft/relea
    Windows one in EffectCraft's command-line renderer on Ubuntu (under WSL); the Linux desktop
    app hasn't been tried yet.
 3. Start EffectCraft and run Effect ▸ Scan for Effect Helpers (or start it with the environment
-   variable `EFFECTCRAFT_HELPERS=1`). SHINECRAFT is then in Effects & Presets ▸ Stylize.
+   variable `EFFECTCRAFT_HELPERS=1`). ShineCraft is then in Effects & Presets ▸ Stylize.
 
-**WebAssembly plug-in:** Settings ▸ Plug-in Library ▸ SHINECRAFT ▸ Install, once it is listed
+**WebAssembly plug-in:** Settings ▸ Plug-in Library ▸ ShineCraft ▸ Install, once it is listed
 there. Or close EffectCraft, put `shinecraft.wasm` in the `Plug-ins` folder of the settings
 folder (`%APPDATA%\EffectCraft`, or `EffectCraftData` beside a portable copy) and start it again.
 

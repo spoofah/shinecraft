@@ -1,4 +1,4 @@
-//! SHINECRAFT: an EffectCraft effect plug-in (WebAssembly ABI 2, see EffectCraft's docs/plugins.md).
+//! ShineCraft: an EffectCraft effect plug-in (WebAssembly ABI 2, see EffectCraft's docs/plugins.md).
 //! Light rays stream out of the bright parts of a layer, away from a source point.
 //!
 //! Pipeline: emission (Base On, threshold, mask) at full resolution natively, on the 480 px working
@@ -18,7 +18,7 @@ use std::f32::consts::TAU;
 pub const MANIFEST: &str = r#"{
   "api": 1,
   "id": "io.github.spoofah.shinecraft",
-  "name": "SHINECRAFT",
+  "name": "ShineCraft",
   "category": "Stylize",
   "version": "1.0.1",
   "author": "Spoofah",

@@ -1,4 +1,4 @@
-//! SHINECRAFT as an EffectCraft external effect helper (docs/external-helpers.md, protocol 1):
+//! ShineCraft as an EffectCraft external effect helper (docs/external-helpers.md, protocol 1):
 //! the same effect, id and parameters as the WebAssembly plug-in, rendered natively on every core.
 //! EffectCraft starts it as `effectcraft-helper-shinecraft.exe --effectcraft-helper` and talks JSON
 //! lines over stdin/stdout; pixels stay in the frame exchange file, which is mapped and rendered
@@ -38,7 +38,7 @@ fn main() {
             "hello" => {
                 view = None;
                 frames = req["frames"].as_str().and_then(|p| OpenOptions::new().read(true).write(true).open(p).map_err(|e| eprintln!("frame exchange {p}: {e}")).ok());
-                send(&mut out, json!({"op": "hello", "version": 1, "name": "SHINECRAFT", "helper_version": env!("CARGO_PKG_VERSION"), "loads": []}));
+                send(&mut out, json!({"op": "hello", "version": 1, "name": "ShineCraft", "helper_version": env!("CARGO_PKG_VERSION"), "loads": []}));
             }
             // time_varying: shimmer and fractal evolution change with time (as `ec_flags` says for the WASM).
             "describe" => send(&mut out, json!({"op": "effects", "effects": [{"manifest": manifest, "padding": true, "time_varying": true}], "errors": []})),
@@ -51,7 +51,7 @@ fn main() {
                 let pixels = if flat.len() < NPARAMS { 0 } else { padding(&Params::from_flat(&flat), req["scale"].as_f64().unwrap_or(1.0), layer) };
                 send(&mut out, json!({"op": "padding", "pixels": pixels}));
             }
-            "load" => send(&mut out, json!({"op": "error", "message": "SHINECRAFT loads no files"})),
+            "load" => send(&mut out, json!({"op": "error", "message": "ShineCraft loads no files"})),
             "ping" => send(&mut out, json!({"op": "pong"})),
             "destroy" => {}
             "shutdown" => break,

@@ -42,4 +42,4 @@ jobs:
           sha256sum shinecraft.wasm effectcraft-helper-shinecraft.exe effectcraft-helper-shinecraft > SHA256SUMS
           gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" \
             shinecraft.wasm effectcraft-helper-shinecraft.exe effectcraft-helper-shinecraft SHA256SUMS \
-            --title "SHINECRAFT ${GITHUB_REF_NAME#v}" --notes "See the README for installation."
+            --title "ShineCraft ${GITHUB_REF_NAME#v}" --notes "See the README for installation."

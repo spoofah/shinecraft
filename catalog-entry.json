@@ -1,6 +1,6 @@
 {
   "id": "io.github.spoofah.shinecraft",
-  "name": "SHINECRAFT",
+  "name": "ShineCraft",
   "author": "Spoofah",
   "description": "Volumetric light rays streaming from the bright parts of the layer, with shimmer, gradient colorize and fractal noise.",
   "license": "MIT OR Apache-2.0",

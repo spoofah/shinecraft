@@ -20,7 +20,7 @@ pub const MANIFEST: &str = r#"{
   "id": "io.github.spoofah.shinecraft",
   "name": "ShineCraft",
   "category": "Stylize",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Spoofah",
   "description": "Volumetric light rays streaming from the bright parts of the layer, with shimmer, gradient colorize and fractal noise.",
   "params": [

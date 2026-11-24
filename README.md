@@ -30,7 +30,9 @@ Downloads are on the [releases page](https://github.com/spoofah/shinecraft/relea
 2. Copy `effectcraft-helper-shinecraft.exe` (Windows) or `effectcraft-helper-shinecraft` (Linux)
    into the `helpers` folder beside the EffectCraft program (or into a folder named in the
    environment variable `EFFECTCRAFT_HELPER_PATH`). On Linux, make it executable:
-   `chmod +x effectcraft-helper-shinecraft`. The Linux build hasn't been tested in EffectCraft yet.
+   `chmod +x effectcraft-helper-shinecraft`. The Linux build renders the same frames as the
+   Windows one in EffectCraft's command-line renderer on Ubuntu (under WSL); the Linux desktop
+   app hasn't been tried yet.
 3. Start EffectCraft and run Effect ▸ Scan for Effect Helpers (or start it with the environment
    variable `EFFECTCRAFT_HELPERS=1`). SHINECRAFT is then in Effects & Presets ▸ Stylize.
 

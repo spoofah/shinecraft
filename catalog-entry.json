@@ -9,6 +9,15 @@
   "preview": {"video": "https://github.com/spoofah/shinecraft/raw/main/media/shinecraft_demo.mp4"},
   "versions": [
     {
+      "version": "1.0.2",
+      "api": 1,
+      "minApp": "0.23.0",
+      "url": "https://github.com/spoofah/shinecraft/releases/download/v1.0.2/shinecraft.wasm",
+      "sha256": "b620ef197350d65a9ac7a696323809c494531c0dd47c43f0dc792a916255d95c",
+      "size": 83561,
+      "effects": ["io.github.spoofah.shinecraft"]
+    },
+    {
       "version": "1.0.0",
       "api": 1,
       "minApp": "0.23.0",

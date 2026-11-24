@@ -40,7 +40,7 @@ Downloads are on the [releases page](https://github.com/spoofah/shinecraft/relea
 there. Or close EffectCraft, put `shinecraft.wasm` in the `Plug-ins` folder of the settings
 folder (`%APPDATA%\EffectCraft`, or `EffectCraftData` beside a portable copy) and start it again.
 
-Needs EffectCraft 0.23.0 or later; tested on 0.24.1.
+Needs EffectCraft 0.23.0 or later; tested on 0.24.1 and 0.25.1.
 
 ## Controls
 

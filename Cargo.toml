@@ -1,7 +1,7 @@
 [package]
 name = "shinecraft"
 description = "SHINECRAFT: volumetric light rays from the bright parts of a layer, an EffectCraft effect (WebAssembly plug-in and native helper)"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
 license = "MIT OR Apache-2.0"
 publish = false
